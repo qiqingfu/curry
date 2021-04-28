@@ -1,8 +1,9 @@
 {
-  "name": "curry",
-  "version": "0.0.0",
+  "name": "@qiqingfu/curry",
+  "version": "1.0.0",
+  "private": false,
   "description": "",
-  "keywords": [],
+  "keywords": ["curry", "javascript"],
   "main": "dist/curry.umd.js",
   "module": "dist/curry.es5.js",
   "typings": "dist/types/curry.d.ts",
