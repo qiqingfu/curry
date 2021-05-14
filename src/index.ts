@@ -1,12 +1,13 @@
-type Curry<T = any, R = any> = (
-  fn: (...args: T[]) => R,
-  ...args: T[]
-) => (...value: T[]) => R | Curry<T, R>
+type Func<T, R> = (...values: T[]) => R
 
-const curry: Curry = (fn, ...args) => {
-  return (...value) => {
-    const c = [...args, ...value]
-    return c.length >= fn.length ? fn(...c) : curry(fn, ...c)
+type Curry<T = any, R = any> = {
+  (func: Func<T, R>, ...args: T[]): Func<T, R | Curry<T, R>>
+}
+
+const curry: Curry = (func, ...args) => {
+  return (...values) => {
+    const c = [...args, ...values]
+    return c.length >= func.length ? func(...c) : curry(func, ...c)
   }
 }
 
